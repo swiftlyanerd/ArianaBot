@@ -24,7 +24,7 @@ module.exports = {
 
             message.channel.send({embed});
         } else {
-            switch (params.join(" ")) { // This allows us to look past the first index in case of spaces.
+            switch (params.join(" ").toLowerCase()) { // This allows us to look past the first index in case of spaces.
                 case "yt":
                 case "yourstruly":
                 case "yours truly":
