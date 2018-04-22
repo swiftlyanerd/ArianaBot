@@ -18,16 +18,12 @@ module.exports = {
             const embed = new Discord.RichEmbed()
             .setColor(0x0000B3)
             .setAuthor(`Welcome to ${aribot.user.username}! All availble commands are listed below.`, aribot.user.avatarURL)
-            .setDescription(`If you'd like help on specific commands, type "${config.prefix}command --help or -h" (ex: ${config.prefix}setalbum -h)"`)
-            .addField(`${config.prefix}avatar`, command[0].description)
-            .addField(`${config.prefix}clearalbums`, command[1].description)
-            .addField(`${config.prefix}github`, command[2].description)
-            .addField(`${config.prefix}help`, command[3].description)
-            .addField(`${config.prefix}sinfo`, command[4].description)
-            .addField(`${config.prefix}setalbum`, command[5].description)
-            .addField(`${config.prefix}uinfo`, command[6].description)
-            .addField(`${config.prefix}version`, command[7].description)
+            .setDescription(`If you'd like help on specific commands, type "${config.bot.prefix}command --help or -h" (ex: ${config.bot.prefix}setalbum -h)"`)
             .setFooter(`Page 1 / 1`);
+
+            for (let i = 0; i < aribot.commands.array().length; i++) {
+                embed.addField(`${config.bot.prefix}${command[i].name}`, command[i].description)
+            }
 
             message.channel.send({embed});
         }
