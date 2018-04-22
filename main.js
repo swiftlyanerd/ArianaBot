@@ -20,12 +20,12 @@ aribot.on("ready", () => {
 aribot.on("message", message => {
     if (message.author.bot) return;
 
-    const params = message.content.slice(config.prefix.length).split(/ +/g);
+    const params = message.content.slice(config.bot.prefix.length).split(/ +/g);
     const command = params.shift().toLowerCase();
 
     //if (!aribot.commands.has(command)) return; // Experimental
 
-    if (message.content.startsWith(config.prefix)) { // If the message starts with the prefix, run the command handler.
+    if (message.content.startsWith(config.bot.prefix)) { // If the message starts with the prefix, run the command handler.
         try {
             aribot.commands.get(command).execute(aribot, message, params);
         } catch (ne) { // Non Existent
@@ -65,4 +65,4 @@ function time() {
     return time;
 }
 
-aribot.login(config.token);
+aribot.login(config.bot.token);

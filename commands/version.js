@@ -13,7 +13,7 @@ module.exports = {
 
             message.channel.send({embed});
         } else {
-            message.channel.send(`Running version: \`${config.version}\``);
+            message.channel.send(`Running version: \`${config.bot.version}\``);
         }
     },
 };

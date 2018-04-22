@@ -11,11 +11,11 @@ module.exports = {
             .setColor(0x0000B3)
             .setAuthor("!yt", aribot.user.avatarURL)
             .addField("Usage:", "!yt [params]")
-            .setFooter("Params:", "keyword");
+            .addField("Params:", "keyword");
 
             message.channel.send({embed});
         } else {
-            let opts = {
+            const opts = {
                 maxResults: 1,
                 key: config.youtube.ytAPIKey
             };
