@@ -1,5 +1,3 @@
-// TODO: Finish Later
-
 const Discord = require("discord.js");
 const ytSearch = require("youtube-search");
 
@@ -9,14 +7,15 @@ module.exports = {
     execute(aribot, message, params) {
         var opts = {
             maxResults: 1,
-            key: 'API key'
+            key: "API KEY HERE"
           };
 
           ytSearch(params.join(" "), opts, function(err, results) {
             if (err) {
-                return console.log(err);
+                console.log(err);
+                message.channel.send(`Could not find ${params.join(" ")}. Try again.`)
             }
-            console.log(results);
+            message.channel.send(results[0].link);
           });
     },
 };
