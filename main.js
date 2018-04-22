@@ -30,12 +30,12 @@ aribot.on("message", message => {
             aribot.commands.get(command).execute(aribot, message, params);
         } catch (ne) { // Non Existent
             console.log(ne);
-            message.reply(`Command \`!${command}\` not found. Type \`!help\` to see the command list.`);
+            //message.reply(`Command \`!${command}\` not found. Type \`!help\` to see the command list.`); // Temporarily disabled
         }
     }
 
     // Need to be able to access main. Temporary?
-    if (message.content.startsWith(".eval")) {
+    if (message.content.startsWith("~eval")) {
         if (message.author.id !== config.ownerID) return;
         try {
             const codeToEval = params.join(" ");
@@ -50,6 +50,15 @@ aribot.on("message", message => {
     }
 });
 
+aribot.on("guildMemberAdd", member => {
+    member.guild.channels.get(member.guild.id).send(`Welcome ${member.user.username} to the server!`);
+    modlog(`${member.user.tag} (\`${member.user.id}\`) has joined the server.`);
+});
+
+aribot.on("guildMemberRemove", member => {
+    modlog(`${member.user.tag} (\`${member.user.id}\`) left/was kicked from the server.`);
+});
+
 // Used by eval
 function clean(text) {
     if (typeof(text) === "string") {
@@ -57,6 +66,15 @@ function clean(text) {
     } else {
         return text;
     }
+}
+
+function log(message) {
+    console.log(`${aribot.user.username}: ${time()} - ${message}`);
+}
+
+function modlog(message) {
+    aribot.channels.get(config.discord.logChannel).send(message);
+    log(message);
 }
 
 function time() {

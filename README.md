@@ -14,6 +14,7 @@ Be sure to rename the config-sample.json file to config.json after editing it to
 
 * token: Insert your bot secret token here. Do NOT share it with anybody else.
 * prefix: Insert the command prefix of your choice here, can be any unicode character.
+* logChannel: Insert the channel ID you wish the bot to post logs to.
 * ownerID: Insert your ownerID here. Allows access to restricted commands.
 * version: Make something up here, it doesn't affect anything.
 * ytAPIKey: Use your Youtube Data API key here. If you don't have one, visit this website: https://developers.google.com/youtube/v3/getting-started

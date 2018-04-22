@@ -19,11 +19,11 @@ module.exports = {
                 maxResults: 1,
                 key: config.youtube.ytAPIKey
             };
-
             ytSearch(params.join(" "), opts, function(err, results) {
                 if (err) {
                     console.log(err);
-                    message.channel.send(`Could not find ${params.join(" ")}. Try again.`)
+                    message.channel.send(`No results found for \`${params.join(" ")}\`. Try again.`);
+                    return;
                 }
                 message.channel.send(results[0].link);
             });
