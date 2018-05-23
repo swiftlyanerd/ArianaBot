@@ -25,7 +25,7 @@ module.exports = {
                 limit : 2,
                 user  : params[0]
             }, function (err, recentTracks) {
-                if (err) {console.log(err);}
+                if (err) { console.log(err); }
                 try {
                     let nowPlaying = false;
                     let status = "";
@@ -48,12 +48,14 @@ module.exports = {
 
                     const embed = new Discord.RichEmbed()
                     .setColor(0xFFFFFF)
-                    .setAuthor(params[0], `https://i.imgur.com/x5AhTlq.png`)
+                    .setAuthor(params[0], `https://i.imgur.com/x5AhTlq.png`, `https://www.last.fm/user/${recentTracks["@attr"].user}`)
+                    //.setURL()
                     .addField(`${status} Song`, `${recentTracks.track[0].name}`, true)
                     .addField(`${status} Artist`, `${recentTracks.track[0].artist["#text"]}`, true)
                     .addField("Previous Song", `${recentTracks.track[1].name}`, true)
                     .addField("Previous Artist", `${recentTracks.track[1].artist["#text"]}`, true)
-                    .setThumbnail(`${recentTracks.track[0].image[3]["#text"]}`);
+                    .setThumbnail(`${recentTracks.track[0].image[3]["#text"]}`)
+                    .setFooter(`Total Scrobbles: ${recentTracks["@attr"].total}`);
                     if(nowPlaying) {
                         embed.setDescription("Currently Scrobbling");
                     } else {
