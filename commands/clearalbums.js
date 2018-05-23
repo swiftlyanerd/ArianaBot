@@ -10,7 +10,7 @@ module.exports = {
         let yt = server.roles.get("285664181577973761"); // Yours Truly
         let me = server.roles.get("285664163974479872"); // My Everything
         let dw = server.roles.get("285656127696535553"); // Dangerous Woman
-        let ntltc = server.roles.get("436807863856398346"); // No Tears Left To Cry
+        let sweetener = server.roles.get("436807863856398346"); // Sweetener
 
         if (params[0] == "-h" || params[0] == "--help") {
             const embed = new Discord.RichEmbed()
@@ -31,8 +31,8 @@ module.exports = {
                     case "285656127696535553": // Dangerous Woman
                         user.removeRole(dw);
                         break;
-                    case "436807863856398346": // No Tears Left To Cry
-                        user.removeRole(ntltc);
+                    case "436807863856398346": // Sweetener
+                        user.removeRole(sweetener);
                         break;
                 }
             });

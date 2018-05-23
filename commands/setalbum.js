@@ -6,11 +6,11 @@ module.exports = {
     execute(aribot, message, params) {
         let user = message.member;
         let server = message.guild;
-        let albums = ["`Yours Truly`", "`My Everything`", "`Dangerous Woman`", "`No Tears Left To Cry`"];
+        let albums = ["`Yours Truly`", "`My Everything`", "`Dangerous Woman`", "`Sweetener`"];
         let yt = server.roles.get("285664181577973761"); // Yours Truly
         let me = server.roles.get("285664163974479872"); // My Everything
         let dw = server.roles.get("285656127696535553"); // Dangerous Woman
-        let ntltc = server.roles.get("436807863856398346"); // No Tears Left To Cry
+        let ntltc = server.roles.get("436807863856398346"); // Sweetener
 
         if (params[0] == null) {
             message.reply(`you didn't select your favorite album. Ariana's albums are: ${albums.join(", ")}.`);
@@ -43,9 +43,7 @@ module.exports = {
                     user.addRole(dw);
                     message.reply(`your favorite album has been set to ${albums[2]}.`);
                     break;
-                case "ntltc":
-                case "notearslefttocry":
-                case "no tears left to cry":
+                case "sweetener":
                     user.addRole(ntltc);
                     message.reply(`your favorite album has been set to ${albums[3]}.`);
                     break;
