@@ -49,7 +49,6 @@ module.exports = {
                     const embed = new Discord.RichEmbed()
                     .setColor(0xFFFFFF)
                     .setAuthor(params[0], `https://i.imgur.com/x5AhTlq.png`, `https://www.last.fm/user/${recentTracks["@attr"].user}`)
-                    //.setURL()
                     .addField(`${status} Song`, `${recentTracks.track[0].name}`, true)
                     .addField(`${status} Artist`, `${recentTracks.track[0].artist["#text"]}`, true)
                     .addField("Previous Song", `${recentTracks.track[1].name}`, true)
