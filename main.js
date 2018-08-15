@@ -14,7 +14,7 @@ for (const file of commandFiles) { // TODO: Handle multiple names for one comman
 
 aribot.on("ready", () => {
     console.log(`${time()} - Logged in as ${aribot.user.tag}.`); // We are logged in and ready to go
-    aribot.user.setActivity("No Tears Left To Cry", { type : "LISTENING" });
+    aribot.user.setActivity("Sweetener", { type : "LISTENING" });
 });
 
 aribot.on("message", message => {
@@ -34,7 +34,7 @@ aribot.on("message", message => {
         }
     }
 
-    // Need to be able to access main. Temporary?
+	// eval
     if (message.content.startsWith("~eval")) {
         if (message.author.id !== config.ownerID) return;
         try {
